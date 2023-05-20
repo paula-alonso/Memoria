@@ -167,3 +167,75 @@ button{
     height: 100%;
     border-radius: 10px;
 }
+
+#modal::backdrop{
+    background-color: rgba(0, 0, 0, .55);
+}
+
+#modal{
+    
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 40%;
+    height: fit-content;
+    max-width: 600px;
+    border-radius: 7px;
+    padding: auto;
+}
+
+
+
+.table-title{
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 15px;
+}
+
+.content{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 12px;
+    line-height: 16px;
+    width: 80%;
+    height: fit-content;
+    text-align: center;
+    border: 1px solid #223485;
+}
+
+th{
+    background-color: #223485;
+    color: white;
+    padding: 5px;
+}
+
+td{
+    border: 1px solid #223485;
+    padding: 5px;
+}
+
+
+
+#cerrar-modal{
+    
+    margin-top: 20px;
+    width: 70px;
+    height: 30px ;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+

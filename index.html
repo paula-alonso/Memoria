@@ -12,9 +12,10 @@
     
     <nav class="info-partida">
         <div class="text-container" id="timer">
+            Tiempo: 00:00
         </div>
         <div class="text-container" id="points">
- 
+            Puntaje: 000
         </div>
         <div class="play" id="user-info">
             <input id="username" type="text" placeholder="Ingresa tu nombre">
@@ -40,11 +41,35 @@
                 Jugar de nuevo
             </p>
         </button>
-        <button class="ver-puntaje">
+        <button class="ver-puntaje" id="abrir-modal">
             <p>
                 Ver puntuaciones
             </p>
         </button>
+    </div>
+    <div class="container">
+        <dialog id="modal">
+            <h2 class="table-title">
+                Tabla de puntuaciones
+            </h2>
+            <table class="content">
+                <tr>
+                  <th class="usernames" id="headder">Nombre</th>
+                  <th class="scores" id="headder">Puntuación</th>
+                </tr>
+                <tr>
+                  <td class="usernames">Paila</td>
+                  <td class="scores">237</td>
+                </tr>
+                <tr>
+                  <td class="usernames">Kevin</td>
+                  <td class="scores">85</td>
+                </tr>
+              </table>
+            <button id="cerrar-modal">
+                Cerrar
+            </button>
+        </dialog>
     </div>
     <script src="./index.js"></script>
 </body>
