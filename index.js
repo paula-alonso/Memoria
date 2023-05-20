@@ -6,24 +6,28 @@ let tab = document.getElementById("tablero");
 let contFlipped = 0;
 let timeValue = document.getElementById("timer")
 let sel = []
+let interval;
 
-//Initial Time
 let seconds = 0,
   minutes = 0;
 
 
 const timeGenerator = () => {
-  seconds -= 1;
+    if(seconds==0 && minutes == 0){
+        finjuego()
+    }else{
+        if(seconds>0){
+            seconds -= 1;}
 
-  if (seconds <= 0) {
-    minutes -= 1;
-    seconds = 59;
-  }
+        if (seconds <= 0 && minutes>0) {
+            minutes -= 1;
+            seconds = 59;
+        }
 
-  let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
-  let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
-  timeValue.innerHTML = `Time: ${minutesValue}:${secondsValue}`;
-  console.log(timeValue)
+        let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
+        let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
+        timeValue.innerHTML = `Tiempo: ${minutesValue}:${secondsValue}`;}
+
 };
 
 ButtomElement.addEventListener("click", ()=>{
@@ -64,6 +68,8 @@ ButtomElement.addEventListener("click", ()=>{
     cards.sort(()=>Math.random()-0.5)
     tab.innerHTML = cards.join(" ")
     console.log(tab.innerHTML = cards.join(" "))
+
+
 }
 });
 
@@ -94,10 +100,16 @@ function deselec(selec){
             contFlipped+=2
             console.log(contFlipped);  
             if(contFlipped==16){
-                document.getElementById("fin-juego").style.visibility = "visible";
+
+                finjuego();
             }
         }
     }, 1000);
+}
+
+function finjuego(){
+    document.getElementById("fin-juego").style.visibility = "visible";
+    clearInterval(interval)
 }
 
 buttomPlayAgain.addEventListener("click", ()=>{
