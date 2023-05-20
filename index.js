@@ -4,10 +4,32 @@ const ButtomElement= document.getElementById("botonJ");
 const buttomPlayAgain= document.getElementById("jugar");
 let tab = document.getElementById("tablero");
 let contFlipped = 0;
-
+let timeValue = document.getElementById("timer")
 let sel = []
 
+//Initial Time
+let seconds = 0,
+  minutes = 0;
+
+
+const timeGenerator = () => {
+  seconds -= 1;
+
+  if (seconds <= 0) {
+    minutes -= 1;
+    seconds = 59;
+  }
+
+  let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
+  let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
+  timeValue.innerHTML = `Time: ${minutesValue}:${secondsValue}`;
+  console.log(timeValue)
+};
+
 ButtomElement.addEventListener("click", ()=>{
+    seconds = 0;
+    minutes = 3;
+    interval = setInterval(timeGenerator, 1000);
     const ims = [`https://www.unimet.edu.ve/wp-content/uploads/2020/10/IMG_6210-741x1030.jpg`,
             `https://pbs.twimg.com/media/EzIDzIOWQAEU0Tq.jpg:large`,
             `https://pbs.twimg.com/media/DgI8uGgX4AA4XkR.jpg`,
