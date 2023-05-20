@@ -15,15 +15,18 @@ let sel = []
 function addcards(tablero, ims, sel){
   
     let cards = []
-    for(let i = 1; i<16; i++){
-        cards.push(`<div class="card" id="card${i}" onclick="selection(${i})">
-            <div class="front">
+    for(let i = 0; i<16; i++){
+        cards.push(`<div class="card-area" onclick="seleccionartarjeta(${i})">
+        <div class="card" id="card${i}" onclick="selection(${i})">
+            <div class="face front">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Unimet_logo.png" id="cover">
             </div>
-            <div class="back" id="back${i}">
+            <div class="face back" id="back${i}">
             <img src="${ims[0]}" id="back-cover">
             </div>
-            </div>`);
+            </div>
+    </div>  
+        `);
         if (i%2==1){
             ims.splice(0,1);
         }
@@ -34,7 +37,7 @@ function addcards(tablero, ims, sel){
 
 
 
-/*function selection(i){
+function seleccionartarjeta(i){
     let card = document.getElementById("card"+i);
     if(card.style.transform != "rotateY(180deg)"){
         card.style.transform = "rotateY(180deg)";
@@ -56,8 +59,11 @@ function deselec(selec){
             let card2 = document.getElementById("card"+selec[1]);
             card1.style.transform = "rotateY(0deg)"
             card2.style.transform = "rotateY(0deg)"
+        }else{
+            back1.style.background = "plum"
+            back2.style.background = "plum"
         }
     }, 1000);
-}*/
+}
 
 buttom.addEventListener("click", addcards(tab, ims, sel));
