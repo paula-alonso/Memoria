@@ -3,11 +3,48 @@
 *{
     margin: 0;
     padding: 0;
+    
+}
 
+body{
+    background-color: #BEC6EA;
 }
 
 .info-partida{
     width: 1440px;
     height: 52px;
-    background-color: rebeccapurple;
+    background-color: #223485;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: white;
+    display: flex;
+    align-items: center;
 }
+
+.text-container{
+    padding-left: 20px;
+}
+
+.title-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title{
+
+    width: 600px;   
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 35px;
+    padding: 20px;
+    text-align: center;
+ 
+}
+
+.card{}
