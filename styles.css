@@ -29,6 +29,7 @@ body{
 }
 
 .title-container{
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,9 +43,56 @@ body{
     font-weight: 700;
     font-size: 25px;
     line-height: 35px;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
  
 }
 
-.card{}
+.tablero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card{
+    position: relative;
+    width: calc(75vh/4);
+    height: calc(95vh/4);
+    
+}
+
+.card div{
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.card .front{
+    background: #FFD8AB;
+    border: 7px solid #EC8108;
+    transform: perspective(500px) rotateY(0deg);
+}
+
+#cover{
+    width: 60px;
+}
+
+.card .back{
+    background: blue;
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.card:hover .front{
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.card:hover .back{
+    transform: perspective(500px) rotateY(360deg);
+}
