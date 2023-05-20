@@ -10,16 +10,17 @@ const ims = [`https://www.unimet.edu.ve/wp-content/uploads/2020/10/IMG_6210-741x
             `https://4.bp.blogspot.com/-gFoWLdF8utk/WgWo9rPMN8I/AAAAAAAATC0/XdWfuwR9UXwoVDY9Wpkg2FBfaoCixkVMACLcBGAs/s1600/20140927_160423.jpg`,
             `https://fastly.4sqi.net/img/general/600x600/PlFG4UCZ11hgJbYkzNrfLffjt8-OAuI4nUPcMqivT2E.jpg`]
 
+let sel = []
 
-
-function addcards(tablero, ims){
+function addcards(tablero, ims, sel){
+  
     let cards = []
     for(let i = 1; i<16; i++){
-        cards.push(`<div class="card" id="card${i}">
+        cards.push(`<div class="card" id="card${i}" onclick="selection(${i})">
             <div class="front">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Unimet_logo.png" id="cover">
             </div>
-            <div class="back">
+            <div class="back" id="back${i}">
             <img src="${ims[0]}" id="back-cover">
             </div>
             </div>`);
@@ -31,4 +32,32 @@ function addcards(tablero, ims){
     tablero.innerHTML = cards.join(" ")
 };
 
-buttom.addEventListener("click", addcards(tab, ims));
+
+
+/*function selection(i){
+    let card = document.getElementById("card"+i);
+    if(card.style.transform != "rotateY(180deg)"){
+        card.style.transform = "rotateY(180deg)";
+        sel.push(i)
+    }
+    if(sel.length ==2){
+        deselec(sel)
+        sel =[];
+    }
+}
+
+function deselec(selec){
+    setTimeout(()=>{
+
+        let back1 = document.getElementById("back"+selec[0]);
+        let back2 = document.getElementById("back"+selec[1]);
+        if(back1.innerHTML != back2.innerHTML){
+            let card1 = document.getElementById("card"+selec[0]);
+            let card2 = document.getElementById("card"+selec[1]);
+            card1.style.transform = "rotateY(0deg)"
+            card2.style.transform = "rotateY(0deg)"
+        }
+    }, 1000);
+}*/
+
+buttom.addEventListener("click", addcards(tab, ims, sel));
