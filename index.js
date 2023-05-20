@@ -1,16 +1,22 @@
-
 document.getElementById("fin-juego").style.visibility = "hidden";
 const ButtomElement= document.getElementById("botonJ");
 const buttomPlayAgain= document.getElementById("jugar");
+const abrirModal = document.getElementById("abrir-modal");
+const cerrarModal = document.getElementById("cerrar-modal");
 let tab = document.getElementById("tablero");
+const modal = document.querySelector("#modal");
 let contFlipped = 0;
 let timeValue = document.getElementById("timer")
 let sel = []
 let interval;
+let participants = localStorage.getItem("lista");
+console.log(participants)
 
 let seconds = 0,
   minutes = 0;
 
+let puntuacion = 0;
+const totalTime = 180;
 
 const timeGenerator = () => {
     if(seconds==0 && minutes == 0){
@@ -108,17 +114,47 @@ function deselec(selec){
 }
 
 function finjuego(){
+    
+    let restTime = minutes*60+seconds;
+    puntuacion = 300*(restTime/totalTime).toFixed(2);
+    document.getElementById("points").innerHTML= `Puntaje: ${puntuacion}`;
     document.getElementById("fin-juego").style.visibility = "visible";
     clearInterval(interval)
+    const nomb = document.getElementById("username").value;
+    let persona = {name:nomb, points: puntuacion};
+    if(participants==null){
+        participants = [];
+        participants.push(persona);
+        localStorage.setItem("lista", JSON.stringify(participants));
+    }else{
+        participants = JSON.parse(localStorage.getItem("lista"));
+        participants.push(persona);
+        localStorage.setItem("lista", JSON.stringify(participants));
+    }
+    console.log(localStorage.getItem("lista"));
+    
 }
 
 buttomPlayAgain.addEventListener("click", ()=>{
-    
+
+    document.getElementById("points").innerHTML= "Puntaje: 000";
+    document.getElementById("timer").innerHTML = "Tiempo: 000";
     document.getElementById("tablero").style.visibility = "hidden";
     document.getElementById("fin-juego").style.visibility = "hidden";
     document.getElementById("username").value = "";
     document.getElementById("user-info").style.visibility = "visible";
 
+})
+
+
+abrirModal.addEventListener("click", ()=>{
+    
+    modal.showModal();
+
+})
+
+cerrarModal.addEventListener("click", ()=>{
+    modal.close();
 })
 
 
