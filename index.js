@@ -1,19 +1,26 @@
+
+const ButtomElement= document.getElementById("botonJ");
+
 const buttom = document.getElementById("jugar");
 let tab = document.getElementById("tablero");
+let contFlipped;
+
 
 const ims = [`https://www.unimet.edu.ve/wp-content/uploads/2020/10/IMG_6210-741x1030.jpg`,
             `https://pbs.twimg.com/media/EzIDzIOWQAEU0Tq.jpg:large`,
             `https://pbs.twimg.com/media/DgI8uGgX4AA4XkR.jpg`,
             `https://photos.wikimapia.org/p/00/02/08/21/90_big.jpg`,
             `https://pbs.twimg.com/media/Ea513L8WkAI6PAp.jpg`,
-            `image.png`,
+            `https://www2022.unimet.edu.ve/wp-content/uploads/conocenos-main.jpg`,
             `https://4.bp.blogspot.com/-gFoWLdF8utk/WgWo9rPMN8I/AAAAAAAATC0/XdWfuwR9UXwoVDY9Wpkg2FBfaoCixkVMACLcBGAs/s1600/20140927_160423.jpg`,
             `https://fastly.4sqi.net/img/general/600x600/PlFG4UCZ11hgJbYkzNrfLffjt8-OAuI4nUPcMqivT2E.jpg`]
 
 let sel = []
 
-function addcards(tablero, ims, sel){
-  
+ButtomElement.addEventListener("click", ()=>{
+    let InputElement = document.getElementById("username").value
+    contFlipped = 0;
+    if(InputElement != ""){
     let cards = []
     for(let i = 0; i<16; i++){
         cards.push(`<div class="card-area" onclick="seleccionartarjeta(${i})">
@@ -30,11 +37,12 @@ function addcards(tablero, ims, sel){
         if (i%2==1){
             ims.splice(0,1);
         }
+        document.getElementById("user-info").style.visibility = "hidden";
     };
     cards.sort(()=>Math.random()-0.5)
     tablero.innerHTML = cards.join(" ")
-};
-
+}
+});
 
 
 function seleccionartarjeta(i){
@@ -60,10 +68,9 @@ function deselec(selec){
             card1.style.transform = "rotateY(0deg)"
             card2.style.transform = "rotateY(0deg)"
         }else{
-            back1.style.background = "plum"
-            back2.style.background = "plum"
+            contFlipped+=2
         }
     }, 1000);
 }
 
-buttom.addEventListener("click", addcards(tab, ims, sel));
+

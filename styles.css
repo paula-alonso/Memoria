@@ -24,13 +24,34 @@ body{
     align-items: center;
 }
 
-#user{
-    display: flex;
-    margin-left: 20px;
-}
 
 .text-container{
     padding-left: 20px;
+}
+
+.play{
+
+    margin-left: 49%;
+}
+
+input{
+    width: 200px;
+    height: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 19px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.jugar{
+    cursor: pointer;
+    width: 80px;
+    height: 35px;
+    background-color: #BEC6EA;
+    color: #06219F;
 }
 
 .title-container{
@@ -54,7 +75,7 @@ body{
 
 .tablero{
     
-    width: 55vw;
+    width: 60vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,10 +90,10 @@ body{
 .card{
 
     position: relative;
-    width: calc(80vh/6);
+    width: calc(60vh/4);
     height: calc(60vh/3);
     margin: 17px;
-    transform-style: preserve-3d;
+    transform-style:preserve-3d;
     transition: 1s;
 }
 
