@@ -1,3 +1,4 @@
+
 document.getElementById("fin-juego").style.visibility = "hidden";
 const ButtomElement= document.getElementById("botonJ");
 const buttomPlayAgain= document.getElementById("jugar");
@@ -80,21 +81,25 @@ ButtomElement.addEventListener("click", ()=>{
 });
 
 
+
 function seleccionartarjeta(i){
-    let card = document.getElementById("card"+i);
+    let remTime = minutes*60+seconds;
+    if(remTime > 0){
+        let card = document.getElementById("card"+i);
     if(card.style.transform != "rotateY(180deg)"){
         card.style.transform = "rotateY(180deg)";
         sel.push(i)
     }
-    if(sel.length ==2){
-        deselec(sel)
+    if(sel.length == 2){
+        deselec(sel);
         sel =[];
     }
+    }
+    
 }
 
 function deselec(selec){
     setTimeout(()=>{
-
         let back1 = document.getElementById("back"+selec[0]);
         let back2 = document.getElementById("back"+selec[1]);
         if(back1.innerHTML != back2.innerHTML){
@@ -110,9 +115,10 @@ function deselec(selec){
                 finjuego();
             }
         }
-    }, 1000);
+    }, 800);
 }
 
+let tarjetica = document.querySelectorAll()
 function finjuego(){
     
     let restTime = minutes*60+seconds;
@@ -121,6 +127,7 @@ function finjuego(){
     document.getElementById("fin-juego").style.visibility = "visible";
     clearInterval(interval)
     const nomb = document.getElementById("username").value;
+
     let persona = {name:nomb, points: puntuacion};
     if(participants==null){
         participants = [];
@@ -148,7 +155,22 @@ buttomPlayAgain.addEventListener("click", ()=>{
 
 
 abrirModal.addEventListener("click", ()=>{
-    
+    let par2 = JSON.parse(localStorage.getItem("lista"));
+    par2.sort(((a, b) => b.points - a.points));
+    console.log(par2);
+    let nuevos = [];
+    nuevos[0]=`<tr>
+                <th class="usernames" id="headder">Nombre</th>
+                <th class="scores" id="headder">Puntuación</th>
+                </tr>`
+    for(let i = 0; i<par2.length;i++){
+        nuevos.push(`<tr>
+                <td class="usernames">${par2[i].name}</td>
+                <td class="scores">${par2[i].points}</td>
+                 </tr>`)
+    }
+
+    document.getElementById("content").innerHTML=nuevos.join('');
     modal.showModal();
 
 })
