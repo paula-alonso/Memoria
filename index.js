@@ -73,32 +73,35 @@ ButtomElement.addEventListener("click", ()=>{
     document.getElementById("tablero").style= "visible";
     console.log(cards)
     cards.sort(()=>Math.random()-0.5)
+    document.getElementById("main-title").style.visibility = "visible"
     tab.innerHTML = cards.join(" ")
     console.log(tab.innerHTML = cards.join(" "))
-
 
 }
 });
 
-
+let aver = false;
 
 function seleccionartarjeta(i){
+    console.log(aver)
     let remTime = minutes*60+seconds;
     if(remTime > 0){
         let card = document.getElementById("card"+i);
-    if(card.style.transform != "rotateY(180deg)"){
+    if(!aver && card.style.transform != "rotateY(180deg)"){
         card.style.transform = "rotateY(180deg)";
         sel.push(i)
     }
     if(sel.length == 2){
+        aver = true;
         deselec(sel);
         sel =[];
     }
-    }
+    }  
     
 }
 
 function deselec(selec){
+    
     setTimeout(()=>{
         let back1 = document.getElementById("back"+selec[0]);
         let back2 = document.getElementById("back"+selec[1]);
@@ -115,10 +118,12 @@ function deselec(selec){
                 finjuego();
             }
         }
+        aver = false;
     }, 800);
+
 }
 
-let tarjetica = document.querySelectorAll()
+
 function finjuego(){
     
     let restTime = minutes*60+seconds;
@@ -146,10 +151,11 @@ buttomPlayAgain.addEventListener("click", ()=>{
 
     document.getElementById("points").innerHTML= "Puntaje: 000";
     document.getElementById("timer").innerHTML = "Tiempo: 000";
-    document.getElementById("tablero").style.visibility = "hidden";
+    document.getElementById("tablero").innerHTML="";
     document.getElementById("fin-juego").style.visibility = "hidden";
     document.getElementById("username").value = "";
     document.getElementById("user-info").style.visibility = "visible";
+    document.getElementById("main-title").style.visibility = "hidden";
 
 })
 
