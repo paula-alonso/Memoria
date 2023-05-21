@@ -40,7 +40,6 @@ const timeGenerator = () => {
 ButtomElement.addEventListener("click", ()=>{
     seconds = 0;
     minutes = 3;
-    interval = setInterval(timeGenerator, 1000);
     const ims = [`https://www.unimet.edu.ve/wp-content/uploads/2020/10/IMG_6210-741x1030.jpg`,
             `https://pbs.twimg.com/media/EzIDzIOWQAEU0Tq.jpg:large`,
             `https://pbs.twimg.com/media/DgI8uGgX4AA4XkR.jpg`,
@@ -52,6 +51,7 @@ ButtomElement.addEventListener("click", ()=>{
     let InputElement = document.getElementById("username").value
     contFlipped = 0;
     if(InputElement != ""){
+        interval = setInterval(timeGenerator, 1000);
     let cards = []
     for(let i = 0; i<16; i++){
         cards.push(`<div class="card-area" onclick="seleccionartarjeta(${i})">
