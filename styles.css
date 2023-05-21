@@ -128,21 +128,6 @@ input{
     transform: rotateY(180deg);
 }
 
-@keyframes iniciar {
-
-    20%,
-    90% {
-        transform: rotateY(180deg);
-    }
-
-    0%,
-    100% {
-        transform: rotateY(0deg);
-    }
-}
-
-
-
 .fin-juego{
     
     display: flex;
