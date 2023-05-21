@@ -62,6 +62,7 @@ input{
 }
 
 .main-title{
+
     margin-top: 10px;
     width: 600px;   
     font-family: 'Raleway';
@@ -240,4 +241,30 @@ td{
     
     
 }
+
+.incio{
+
+    position: absolute;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+
+}
+
+.naranja{
+    color: #ce6e00;
+    -webkit-text-stroke: 1px black;
+}
+
+#initfoto{
+    margin-top: 20px;
+    width: 34%;
+    border-radius: 7px;
+}
+
+
 

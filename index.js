@@ -70,7 +70,7 @@ ButtomElement.addEventListener("click", ()=>{
         }
         document.getElementById("user-info").style.visibility = "hidden";
     };
-    document.getElementById("tablero").style= "visible";
+    document.getElementById("inicio").style.visibility = "hidden";
     console.log(cards)
     cards.sort(()=>Math.random()-0.5)
     document.getElementById("main-title").style.visibility = "visible"
@@ -156,6 +156,7 @@ buttomPlayAgain.addEventListener("click", ()=>{
     document.getElementById("username").value = "";
     document.getElementById("user-info").style.visibility = "visible";
     document.getElementById("main-title").style.visibility = "hidden";
+    document.getElementById("inicio").style.visibility = "visible";
 
 })
 
